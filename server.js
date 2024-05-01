@@ -33,4 +33,8 @@ app.get("/api/get-api-key", authenticateToken, (req, res) => {
   res.json({ apiKey: process.env.OPENAI_API_KEY });
 });
 
+app.get("/", (req, res) => {
+  res.send("");
+});
+
 module.exports = app; // Export the app for testing
