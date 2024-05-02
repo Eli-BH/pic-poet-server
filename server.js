@@ -32,6 +32,12 @@ app.get("/api/get-api-key", authenticateToken, (req, res) => {
   res.json({ apiKey: process.env.OPENAI_API_KEY });
 });
 
+app.get("/api/get-query", (req, res) => {
+  const text = `Imagine you are a renowned American poet, celebrated for your succinct, observational poetry that evokes a sense of wonder and introspection. You have just been handed a photograph. This photograph captures a moment or scene that is ripe with unspoken stories and subtle emotions. Your task is to study the elements within this image—notice the light, the shadows, the subjects, and the mood conveyed. Write a short poem that reflects on the scene depicted in the image. Your poem should offer insights into the beauty or profundity of everyday moments, transforming the ordinary into the extraordinary through your words. keep the poem short and sweet. 4 paragraphs max should do. Give it a nice short title, and put the title between asterisks.`;
+
+  res.json({ query: text });
+});
+
 app.get("/", (req, res) => {
   res.send("");
 });
